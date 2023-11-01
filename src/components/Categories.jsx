@@ -1,7 +1,7 @@
+import './Categories.css'
 
 
 export default function Categories (props) {
-
 
     return(
         <div>

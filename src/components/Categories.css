@@ -1,0 +1,19 @@
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Create 5 columns */
+    gap: 10px; /* Add some spacing between items */
+  }
+  
+  .card {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .card h3 {
+    margin: 0;
+  }
+  
+  .card img {
+    max-width: 100%;
+  }
