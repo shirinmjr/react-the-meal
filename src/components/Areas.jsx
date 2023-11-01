@@ -3,7 +3,9 @@ import './Areas.css'
 
 export default function Areas (props) {
 
-
+    if (!props.areasMeals) {
+        console.log('man')
+    } else {
     return(
         <div>
             <div className="areas-grid">
@@ -16,4 +18,4 @@ export default function Areas (props) {
             </div>
         </div>
     )
-}
+}}
