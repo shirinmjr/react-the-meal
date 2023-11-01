@@ -3,8 +3,13 @@ import { CATEGORY_LIST, AREA_LIST } from '../globals';
 import axios from 'axios';
 
 export default function Home() {
-    const [areasList, setAreasList] = useState([]);
+
     const [categoriesList, setCategoriesList] = useState([]);
+    const [areasList, setAreasList] = useState([]);
+    const [categorySelect, setCategorySelect] = useState([]);
+
+
+
 
     useEffect(() => {
         const getFoodCategoriesList = async () => {
@@ -16,7 +21,7 @@ export default function Home() {
         const getFoodAreasList = async () => {
             const areasList = await axios.get(`${AREA_LIST}`);
             console.log(areasList.data.meals);
-            setAreasList(categoriesList.data.meals);
+            setAreasList(areasList.data.meals);
         };
         getFoodCategoriesList();
         getFoodAreasList();
@@ -25,19 +30,24 @@ export default function Home() {
     return (
         <div>
             <h1>Welcome To Foodies Food</h1>
-            <select>
-                <option>Select A Food Category</option>;
+            <select className='category-select' onChange={() => props.removeTask(index)}>
+                <option>Select A Food Category</option>
                 {categoriesList.map((category, key) => {
-                    return <option key={key}>{category.strCategory}</option>;
-                })}
+                    return <option key={key} value={category.strCategory}>{category.strCategory}</option>;
+                }
+                )}
             </select>
-            <select>
+            <select className='area-select'>
                 <option>Select A Food Area</option>;
-                {areasList.map((category, key) => {
-                    return <option key={key}>{areasList.strArea}</option>;
-                })}
+                {areasList.map((area, key) => {
+                    return <option key={key} value={area.strArea}>{area.strArea}</option>;
+                }
+                )}
             </select>
 
         </div>
     );
 }
+
+
+
