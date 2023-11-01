@@ -10,6 +10,7 @@ export default function Home() {
     const [selectedCategory, setSelectedCategory] = useState('')
     const [selectedArea, setSelectedArea] = useState('')
 
+
     useEffect(() => {
         const getFoodCategoriesList = async () => {
             const categoriesList = await axios.get(`${CATEGORY_LIST}`);
@@ -41,8 +42,9 @@ export default function Home() {
             <select onChange={handleCategoryChange} value={selectedCategory}>
                 <option>Select A Food Category</option>;
                 {categoriesList.map((category, key) => {
-                    return <option key={key}>{category.strCategory}</option>;
-                })}
+                    return <option key={key} value={category.strCategory}>{category.strCategory}</option>;
+                }
+                )}
             </select>
             <select onChange={handleAreaChange} value={selectedArea}>
                 <option>Select A Food Area</option>;
@@ -56,3 +58,6 @@ export default function Home() {
         </div>
     );
 }
+
+
+
