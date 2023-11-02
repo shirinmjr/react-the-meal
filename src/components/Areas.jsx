@@ -1,6 +1,6 @@
 import './Areas.css';
 import { Link } from "react-router-dom";
-import AreasPage from './AreasPage';
+import MealPage from './MealPage';
 
 export default function Areas(props) {
 
@@ -12,7 +12,7 @@ export default function Areas(props) {
                 <div className="areas-grid">
                     {props.areasMeals.map((meal) => (
                         <div className="card" key={meal.idMeal}>
-                            <Link to="/AreasPage">
+                            <Link to="/MealPage">
                                 <h3> {meal.strMeal} </h3>
                                 <img src={meal.strMealThumb} />
                             </Link>
