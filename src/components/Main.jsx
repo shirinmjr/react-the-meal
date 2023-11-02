@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
-import AreasPage from "./AreasPage";
+import MealPage from "./MealPage";
 
 function Main() {
     return (
@@ -8,7 +8,7 @@ function Main() {
             <div className='Main'>
                 <Routes>
                     <Route path='/' exact={true} element={<Home/>} />
-                    <Route path='/AreasPage' exact={true} element={<AreasPage />} />
+                    <Route path='/MealPage' exact={true} element={<MealPage />} />
                 </Routes>
             </div>
         </div>
