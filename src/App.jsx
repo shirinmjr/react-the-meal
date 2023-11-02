@@ -5,6 +5,7 @@ import './App.css';
 import Home from './components/Home';
 import Areas from './components/Areas';
 import Categories from './components/Categories';
+import SearchBar from './components/SearchBar';
 
 function App() {
   const [areasMeals, setAreasMeals] = useState([]);
@@ -27,6 +28,7 @@ function App() {
   return (
     <>
       <Home getCategoriesMeals={getCategoriesMeals} getAreasMeals={getAreasMeals} />
+      <SearchBar />
       <Areas areasMeals={areasMeals} />
       <Categories categoriesMeals={categoriesMeals} />
     </>
