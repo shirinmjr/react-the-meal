@@ -23,16 +23,8 @@ export default function Home(props) {
         };
         getFoodCategoriesList();
         getFoodAreasList();
-    }, [selectedArea]);
+    }, []);
 
-    const handleCategoryChange = (event) => {
-        setSelectedCategory(event.target.value);
-        console.log(selectedCategory);
-    };
-    const handleAreaChange = (event) => {
-        setSelectedArea(event.target.value);
-        console.log(selectedArea);
-    };
 
     return (
         <div>

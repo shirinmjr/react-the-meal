@@ -1,10 +1,10 @@
-
+import { useState } from 'react';
+import { AREA_URL, CATEGORY_URL } from './globals';
+import axios from 'axios';
 import './App.css';
 import Home from './components/Home';
-
-
-
-
+import Areas from './components/Areas';
+import Categories from './components/Categories';
 
 function App() {
   const [areasMeals, setAreasMeals] = useState([]);
