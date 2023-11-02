@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+
 import './App.css';
 import Home from './components/Home';
-import Areas from './components/Areas';
-import Categories from './components/Categories';
 
-import { AREA_URL, CATEGORY_URL } from './globals';
-import axios from 'axios';
+
+
+
 
 function App() {
   const [areasMeals, setAreasMeals] = useState([]);
@@ -27,8 +26,8 @@ function App() {
 
   return (
     <>
-      <Home getCategoriesMeals={getCategoriesMeals} getAreasMeals={getAreasMeals}/>
-      <Areas areasMeals={areasMeals}  />
+      <Home getCategoriesMeals={getCategoriesMeals} getAreasMeals={getAreasMeals} />
+      <Areas areasMeals={areasMeals} />
       <Categories categoriesMeals={categoriesMeals} />
     </>
   );

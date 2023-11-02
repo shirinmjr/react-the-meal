@@ -1,8 +1,11 @@
+import './Categories.css'
 
 
 export default function Categories (props) {
 
-
+    if (!props.categoriesMeals) {
+        console.log('man')
+    } else {
     return(
         <div>
             <div className="categories-grid">
@@ -15,4 +18,4 @@ export default function Categories (props) {
             </div>
         </div>
     )
-}
+}}

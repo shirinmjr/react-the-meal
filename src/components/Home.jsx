@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { CATEGORY_LIST, AREA_LIST } from '../globals';
 import axios from 'axios';
+import Displays from './Displays';
+import SearchBar from './SearchBar';
 
 export default function Home(props) {
 
@@ -21,7 +23,16 @@ export default function Home(props) {
         };
         getFoodCategoriesList();
         getFoodAreasList();
-    }, []);
+    }, [selectedArea]);
+
+    const handleCategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+        console.log(selectedCategory);
+    };
+    const handleAreaChange = (event) => {
+        setSelectedArea(event.target.value);
+        console.log(selectedArea);
+    };
 
     return (
         <div>
@@ -39,9 +50,8 @@ export default function Home(props) {
                 onChange={(e) => { props.getAreasMeals(e.target.value); }}>
                 <option>Select A Food Area</option>;
                 {areasList.map((area, key) => {
-                    return <option key={key} value={area.strArea}>{area.strArea}</option>;
-                }
-                )}
+                    return <option key={key}>{area.strArea}</option>;
+                })}
             </select>
         </div>
     );
