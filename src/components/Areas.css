@@ -1,4 +1,4 @@
-.categories-grid {
+.areas-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Create 5 columns */
     gap: 10px; /* Add some spacing between items */
