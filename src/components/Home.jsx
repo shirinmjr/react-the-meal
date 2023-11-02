@@ -4,12 +4,10 @@ import axios from 'axios';
 import Displays from './Displays';
 import SearchBar from './SearchBar';
 
-export default function Home() {
-    const [areasList, setAreasList] = useState([]);
-    const [categoriesList, setCategoriesList] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState('')
-    const [selectedArea, setSelectedArea] = useState('')
+export default function Home(props) {
 
+    const [categoriesList, setCategoriesList] = useState([]);
+    const [areasList, setAreasList] = useState([]);
 
     useEffect(() => {
         const getFoodCategoriesList = async () => {
@@ -28,33 +26,33 @@ export default function Home() {
     }, [selectedArea]);
 
     const handleCategoryChange = (event) => {
-        setSelectedCategory(event.target.value)
-        console.log(selectedCategory)
-    }
+        setSelectedCategory(event.target.value);
+        console.log(selectedCategory);
+    };
     const handleAreaChange = (event) => {
-        setSelectedArea(event.target.value)
-        console.log(selectedArea)
-    }
+        setSelectedArea(event.target.value);
+        console.log(selectedArea);
+    };
 
     return (
         <div>
             <h1>Welcome To Foodies Food</h1>
-            <select onChange={handleCategoryChange} value={selectedCategory}>
-                <option>Select A Food Category</option>;
+            <select className='category-select'
+                onChange={(e) => { props.getCategoriesMeals(e.target.value); }}>
+                <option>Select A Food Category</option>
                 {categoriesList.map((category, key) => {
                     return <option key={key} value={category.strCategory}>{category.strCategory}</option>;
                 }
                 )}
             </select>
-            <select onChange={handleAreaChange} value={selectedArea}>
+
+            <select className='area-select'
+                onChange={(e) => { props.getAreasMeals(e.target.value); }}>
                 <option>Select A Food Area</option>;
                 {areasList.map((area, key) => {
                     return <option key={key}>{area.strArea}</option>;
                 })}
             </select>
-            <SearchBar />
-            <Displays areaSelected={selectedArea} categorySelected={selectedCategory}/>
-
         </div>
     );
 }
