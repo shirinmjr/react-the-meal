@@ -2,14 +2,10 @@ import { useState, useEffect } from 'react';
 import { CATEGORY_LIST, AREA_LIST } from '../globals';
 import axios from 'axios';
 
-export default function Home() {
+export default function Home(props) {
 
     const [categoriesList, setCategoriesList] = useState([]);
     const [areasList, setAreasList] = useState([]);
-    const [categorySelect, setCategorySelect] = useState([]);
-
-
-
 
     useEffect(() => {
         const getFoodCategoriesList = async () => {
@@ -30,21 +26,23 @@ export default function Home() {
     return (
         <div>
             <h1>Welcome To Foodies Food</h1>
-            <select className='category-select' onChange={() => props.removeTask(index)}>
+            <select className='category-select'
+                onChange={(e) => { props.getCategoriesMeals(e.target.value); }}>
                 <option>Select A Food Category</option>
                 {categoriesList.map((category, key) => {
                     return <option key={key} value={category.strCategory}>{category.strCategory}</option>;
                 }
                 )}
             </select>
-            <select className='area-select'>
+
+            <select className='area-select'
+                onChange={(e) => { props.getAreasMeals(e.target.value); }}>
                 <option>Select A Food Area</option>;
                 {areasList.map((area, key) => {
                     return <option key={key} value={area.strArea}>{area.strArea}</option>;
                 }
                 )}
             </select>
-
         </div>
     );
 }
